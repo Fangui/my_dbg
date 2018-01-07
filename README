@@ -1,0 +1,75 @@
+To build the binary "my_gdb", do ./cmake.sh or type the following commands:
+
+    mkdir build
+    cd build
+    make
+
+    With ./cmake.sh the file is generated in the root, whereas while
+    typing commands, the binary is generated in build directory
+
+Usage : ./my_gdb [PATH TO DEBUG FILE]
+
+This will open in interactive mode the debugger, which support completion
+and history.
+
+Command:
+    -info_regs:
+        get the address of all registers
+
+    -info_memory:
+        display all the memory mappings of the debugged program
+
+    -disassemble [START_ADDR] [SIZE]:
+        display size instructions starting at the adresse start_addr
+
+    -examine [FORMAT] [SIZE] [START_ADDR]:
+
+        read into the debugged program memory and display it with $format
+
+        format:
+            'x' hexadecimal format
+
+            'd' decimal format
+
+            's' string format
+
+            'i' instruction format
+
+    -backtrace:
+        display the call trace at the current rip
+
+    -breakpoint [ADDR]:
+        set a breapoint at address in parameter
+
+    -break_del [ID]:
+        delete the breakpoint matching the ID
+
+    -break_list:
+        display breakpoints with their types, ID and addresses
+
+    -tbreak [ADDR]:
+        set a tempory breakpoint at address in parameter
+
+    -breaf [FUNCTION]:
+        set a breakpoint on the first matching symbol found
+
+    -step_instr:
+        step into the program
+
+    -next_instr:
+        same as step_instr but will step over a call function if there is one
+
+    -finish:
+         continues until the end of the current function
+
+    -continue:
+        continue the program until the next breakpoint
+
+    -attach [$PID]:
+        Attach the pid to the process
+
+    -quit:
+        exit my_gdb
+
+    -help:
+        display usage command
